@@ -5,19 +5,13 @@
 <div class="appbar">
   <img src="{% static 'notes/img/logo-getit.png' %}" class="logo"/>
   <p class="subtitle">Como o Post-it, mas com outro verbo</p>
+  <div class="pages">
+    <a href="http://127.0.0.1:8000/notes">Notes</a>
+    <a href="http://127.0.0.1:8000/tags">Tags</a>
+  </div>
 </div>
 <main class="container">
-  <form method="post" class="form-card">
-    {% csrf_token %}
-    <input id="titulo" type="text" name="titulo" class="form-card-title" placeholder="Título"/>
-    <textarea id="detalhes" name="detalhes" class="autoresize" placeholder="Digite o conteúdo..."></textarea>
-    <input id="tag" type="text" name="tag" class="form-card-tag" placeholder="Tag"/>
-    <input type="submit" class="btn"/>
-  </form>
-
-  <div class="card-container">
     {% block notes %}   {% endblock %}
-  </div>
 </main>  
 {% endblock %}
 

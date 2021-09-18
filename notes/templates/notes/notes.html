@@ -1,39 +1,16 @@
 {%extends "notes/index.html" %}
 {% block notes %}
-{% for note in notes %}
-    <div class="card" id = "card-{{note.id}}">
-      <div class="note" id="note-{{note.id}}">
-        <div class="card-content"> 
-          <h3 class="card-title" id="title-{{note.id}}">{{ note.title }}</h3>
-          <div class="card-text" id="details-{{note.id}}">
-            <p>
-              {{note.details}}
-            </p>
-          </div>
-          <div class="card-tag" id="tag-{{note.id}}">
-            <p>{{note.tag.tagName}}</p>
-          </div>
-        </div>
-        <div class="modify-menu" id="modify-menu-{{note.id}}">
-          <button class="modify-button" id="edit-button-{{note.id}}" onclick="openUpdateCard('{{note.id}}')"><i class="material-icons">edit</i></button>
-          <input type="hidden" name="method" value="DELETE">
-          <input type="hidden" name="id" value="{{note.id}}"/>
-          <button class="modify-button" id="delete-button-{{note.id}}" type="button" onclick="DeleteCard('{{note.id}}')"><i class="material-icons">delete</i></button>
-        </div>
-      </div>
-    
-      <div class="note-modify" id="note-modify-{{note.id}}">
-        <input type="hidden" name="method" value="UPDATE"/>
-        <input type="hidden" name="id" value="{{note.id}}"/>
-        <div class="card-content">
-          <input class="modify-card-title" id="modify-card-title-{{note.id}}" type="title" name="title" value="{{ note.title }}"/>
-          <textarea class="modify-card-text" id="modify-card-text-{{note.id}}" name="details">{{note.details}}</textarea>
-        </div>
-        <div class="modify-menu" id="modify-menu-{{note.id}}">
-          <button class="modify-button" id="edit-button-{{note.id}}" type="button" onclick="UpdateDoc('{{note.id}}')"><i class="material-icons">done</i></button>
-          <button class="modify-button" id="delete-button-{{note.id}}" onclick="closeUpdateCard('{{note.id}}')"><i class="material-icons">keyboard_return</i></button>
-        </div>
-      </div>
-    </div>
-{% endfor %} 
+  <form method="post" class="form-card">
+    {% csrf_token %}
+    <input id="titulo" type="text" name="titulo" class="form-card-title" placeholder="Título"/>
+    <textarea id="detalhes" name="detalhes" class="autoresize" placeholder="Digite o conteúdo..."></textarea>
+    <input id="tag" type="text" name="tag" class="form-card-tag" placeholder="Tag"/>
+    <input type="submit" class="btn"/>
+  </form>
+
+  <div class="card-container">
+    {% for note in notes %}
+        {% include 'notes/card.html' %}
+    {% endfor %}
+  </div>
 {% endblock %}

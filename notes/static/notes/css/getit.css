@@ -75,7 +75,7 @@ body {
 .form-card-tag{
   font-size: 1.1rem;
   border: 0px;
-  margin: 0.3rem;
+  margin-bottom: 1rem;
 }
 
 .btn {
@@ -189,6 +189,16 @@ body {
   font-family: 'Permanent Marker', cursive;
   font-size:smaller;
   color: #4c4c4c;
+}
+
+.modify-card-tag{
+  width: 100%;
+  background: none;
+  border-style: solid;
+  border-width: 0.12rem;
+  border-radius: 0.3rem;
+  border-color: #000000;
+  margin-top: 0.5rem;
 }
 .card-color-1{
   background-color: #ead3a7

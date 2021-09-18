@@ -1,0 +1,10 @@
+{%extends "notes/index.html" %}
+{% block notes %}
+<p>{{tag.tagName}}</p>
+<div class="card-container">
+    {% for note in notes %}
+        {% include 'notes/card.html' %}
+    {% endfor %}    
+</div>
+
+{% endblock %}

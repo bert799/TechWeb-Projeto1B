@@ -48,12 +48,15 @@ function getData() {
 function UpdateDoc(modId) {
   var tituloOriginal = "title-";
   var textoOriginal = "details-";
+  var tagOriginal = "tag-";
   var tituloModificado = "modify-card-title-";
   var textoModificado = "modify-card-text-";
+  var tagModificado = "modify-card-tag-";
   var method = "method=";
   var id = "id=";
   var title = "title=";
   var details = "details=";
+  var tag = "tag=";
   var xhttp = new XMLHttpRequest();
   var request = "";
   var spacedTitle;
@@ -63,20 +66,24 @@ function UpdateDoc(modId) {
   id = id.concat(stringId)
   spacedTitle = String(document.getElementById(tituloModificado.concat(stringId)).value);
   spacedDetails = String(document.getElementById(textoModificado.concat(stringId)).value);
+  spacedTag = String(document.getElementById(tagModificado.concat(stringId)).value);
   title = title.concat(spacedTitle.replace(/ /g, "+"));
   details = details.concat(spacedDetails.replace(/ /g, "+"));
-  request = request.concat(method, "&", id, "&", title, "&", details);
+  tag = tag.concat(spacedTag.replace(/ /g, "+"));
+  request = request.concat(method, "&", id, "&", title, "&", details, "&", tag);
   console.log(title);
   console.log(details);
+  console.log(tag)
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById(tituloOriginal.concat(stringId)).innerHTML = spacedTitle;
       document.getElementById(textoOriginal.concat(stringId)).innerHTML = spacedDetails;
+      document.getElementById(tagOriginal.concat(stringId)).innerHTML = spacedTag;
       closeUpdateCard(modId);
     }
   };
   console.log(request);
-  xhttp.open("POST", "update", true);
+  xhttp.open("POST", "http://127.0.0.1:8000/update", true);
   xhttp.setRequestHeader('X-CSRFToken',csrftoken);
   xhttp.send(request);
 }
@@ -97,7 +104,7 @@ function DeleteCard(modId) {
     }
   };
   console.log(body)
-  xhttp.open("POST", "delete", true);
+  xhttp.open("POST", "http://127.0.0.1:8000/delete", true);
   xhttp.setRequestHeader('X-CSRFToken',csrftoken);
   xhttp.send(body);
 }
