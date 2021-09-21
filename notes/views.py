@@ -9,10 +9,13 @@ def index(request):
         title = request.POST.get('titulo')
         content = request.POST.get('detalhes')
         tagName = request.POST.get('tag')
-        tag, created = Tag.objects.get_or_create(tagName = tagName)
-        if created:
-            tag.save()
-        note = Note(title = title, details = content, tag = tag)
+        if tagName != '':
+            tag, created = Tag.objects.get_or_create(tagName = tagName)
+            if created:
+                tag.save()
+            note = Note(title = title, details = content, tag = tag)
+        else:
+            note = Note(title = title, details = content)
         note.save()
         return redirect('index')
     else:

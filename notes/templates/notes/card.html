@@ -13,15 +13,11 @@
       </div>
       <div class="modify-menu" id="modify-menu-{{note.id}}">
         <button class="modify-button" id="edit-button-{{note.id}}" onclick="openUpdateCard('{{note.id}}')"><i class="material-icons">edit</i></button>
-        <input type="hidden" name="method" value="DELETE">
-        <input type="hidden" name="id" value="{{note.id}}"/>
         <button class="modify-button" id="delete-button-{{note.id}}" type="button" onclick="DeleteCard('{{note.id}}')"><i class="material-icons">delete</i></button>
       </div>
     </div>
   
     <div class="note-modify" id="note-modify-{{note.id}}">
-      <input type="hidden" name="method" value="UPDATE"/>
-      <input type="hidden" name="id" value="{{note.id}}"/>
       <div class="card-content">
         <input class="modify-card-title" id="modify-card-title-{{note.id}}" type="title" name="title" value="{{ note.title }}"/>
         <textarea class="modify-card-text" id="modify-card-text-{{note.id}}" name="details">{{note.details}}</textarea>

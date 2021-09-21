@@ -2,7 +2,7 @@
 {% block notes %}
 <div class="tags-container">
     {% for tag in tags %} 
-    <a href="tags/{{tag.tagName}}">{{tag.tagName}}</a>
+        <a href="{% url 'tagNotes' tag.tagName %}" class="tag-link">{{tag.tagName}}</a>
     {% endfor %}
 </div>
 {% endblock %}
