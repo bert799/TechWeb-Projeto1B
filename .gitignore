@@ -145,6 +145,3 @@ tests/.coverage
 build/
 tests/report/
 
-
-# ignora settings
-/getit/settings.py
