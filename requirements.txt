@@ -2,16 +2,7 @@ asgiref==3.4.1
 Django==3.2.7
 gunicorn==20.1.0
 psycopg2==2.9.1
-python-qt-binding==0.4.3
 pytz==2021.1
-qt-dotgraph==0.4.2
-qt-gui==0.4.2
-qt-gui-cpp==0.4.2
-qt-gui-py-common==0.4.2
-resource-retriever==1.12.6
-smclib==1.8.6
 sqlparse==0.4.1
-srdfdom==0.6.2
-urdfdom-py==0.4.5
 whitenoise==5.3.0
-xacro==1.14.6
+
