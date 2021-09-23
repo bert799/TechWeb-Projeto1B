@@ -42,6 +42,10 @@ def delete(request):
                 params[keyList[0]] = keyList[1]
         noteId = params['id']
         note = Note.objects.filter(id=noteId)
+        notesWithTag = Note.objects.filter(tag = note[0].tag)
+        if len(notesWithTag) == 1:
+            tag = Tag.objects.filter(tagName = note[0].tag.tagName)
+            tag.delete()
         note.delete()
         return redirect('index')
     else:
