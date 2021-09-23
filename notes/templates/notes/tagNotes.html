@@ -1,6 +1,6 @@
 {%extends "notes/index.html" %}
 {% block notes %}
-<p>{{tag.tagName}}</p>
+<p class="tag">{{tag.tagName}}</p>
 <div class="card-container">
     {% for note in notes %}
         {% include 'notes/card.html' %}

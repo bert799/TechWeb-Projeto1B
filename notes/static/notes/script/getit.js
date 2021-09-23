@@ -83,7 +83,7 @@ function UpdateDoc(modId) {
     }
   };
   console.log(request);
-  xhttp.open("POST", "http://127.0.0.1:8000/update", true);
+  xhttp.open("POST", "../update", true);
   xhttp.setRequestHeader('X-CSRFToken',csrftoken);
   xhttp.send(request);
 }
@@ -104,7 +104,7 @@ function DeleteCard(modId) {
     }
   };
   console.log(body)
-  xhttp.open("POST", "http://127.0.0.1:8000/delete", true);
+  xhttp.open("POST", "../delete", true);
   xhttp.setRequestHeader('X-CSRFToken',csrftoken);
   xhttp.send(body);
 }
